@@ -8,13 +8,12 @@ ShowHomeFeed();
 
 /* promise data exercise */
 
-/*
 const login = () =>{
     return new Promise ((resolve,reject)=>{
 setTimeout(() => {
     resolve("Resolved")
-    //reject("Rejected")
-}, 2000);
+    reject("Rejected")
+}, 1000);
     })
 };
 
@@ -23,16 +22,16 @@ const fetchData = ()=>{
         setTimeout(() => {
            resolve("FetchedData")
             //reject("FetchedData")
-        }, 2000);
+        }, 1000);
     })
 };
 
 const PostsAndPhotos = ()=>{
     return new Promise ((resolve,reject)=>{
 setTimeout(() => {
-    resolve("PoseAndPhotos")
+    resolve("PoseAndPhotosData")
     //reject("PoseAndPhotos")
-}, 2000);
+}, 1000);
     })
 };
 
@@ -41,36 +40,31 @@ const MessagesLoading = () =>{
 setTimeout(() => {
     resolve("MessagesThenNewFeed")
     //reject("Messages")
-}, 2000);
+}, 1000);
     })
 };
 
 const ShowHomeFeed = (Mdata)=>{
-    console.log(Mdata,"Ready")
+    console.log(Mdata,"Ready Now...")
 };
 
+
+
+
 login().then((logdata)=>{
-    console.log(logdata);
-    fetchData().then((fehdata)=>{
-        console.log(fehdata);
-        PostsAndPhotos().then((pdata)=>{
-            console.log(pdata);
-            MessagesLoading().then((Mdata)=>{
-                console.log(Mdata);
-                ShowHomeFeed(Mdata,"In New Feed");
-            }).catch((Mdata)=>{
-                console.log(Mdata);
-            })
-        }).catch((pdata)=>{
-            console.log(pdata,"E R R O R")
-        })
-    .catch((fehdata)=>{
-        console.log(fehdata,"E R R O R")
-    })
-})
-.catch((logdata)=>{
-    console.log(logdata, " E r r o r")
-})
+    console.log(logdata,"Successful");
+   return fetchData();
+}).then((fetcdata)=>{
+    console.log(fetcdata,"Successful");
+   return PostsAndPhotos();
+}).then((photopostdata)=>{
+    console.log(photopostdata,"Successful");
+   return MessagesLoading();
+}).then((Mdata)=>{
+    console.log(Mdata,"Successful");
+    ShowHomeFeed(Mdata)
 })
 
-*/
+.catch((data)=>{
+    console.log("ERROR in : ",data)
+})

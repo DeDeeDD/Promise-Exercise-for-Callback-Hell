@@ -8,12 +8,11 @@ ShowHomeFeed();
 
 /* promise data exercise */
 
-/*
 const login = () =>{
     return new Promise ((resolve,reject)=>{
 setTimeout(() => {
-    resolve("Resolved")
-    //reject("Rejected")
+    //resolve("Resolved")
+    reject("Rejected")
 }, 2000);
     })
 };
@@ -49,28 +48,17 @@ const ShowHomeFeed = (Mdata)=>{
     console.log(Mdata,"Ready")
 };
 
+
+
+
 login().then((logdata)=>{
     console.log(logdata);
-    fetchData().then((fehdata)=>{
-        console.log(fehdata);
-        PostsAndPhotos().then((pdata)=>{
-            console.log(pdata);
-            MessagesLoading().then((Mdata)=>{
-                console.log(Mdata);
-                ShowHomeFeed(Mdata,"In New Feed");
-            }).catch((Mdata)=>{
-                console.log(Mdata);
-            })
-        }).catch((pdata)=>{
-            console.log(pdata,"E R R O R")
-        })
-    .catch((fehdata)=>{
-        console.log(fehdata,"E R R O R")
-    })
-})
-.catch((logdata)=>{
-    console.log(logdata, " E r r o r")
-})
+    fetchData();
+
+}).then((fetcdata)=>{
+    console.log(fetcdata);
 })
 
-*/
+.catch(()=>{
+    console.log("ERROR")
+})
